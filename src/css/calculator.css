@@ -50,10 +50,16 @@ button:active {
     display: flex;
     align-items: center;
     justify-content: end;
+    overflow-x: auto; 
+    white-space: nowrap;
 }
 
 .display-text {
     font-size: 5rem;
     margin-right: 0.5rem;
     font-weight: 600;
+    min-width: 100%;
+    text-align: right;
+    
 }
+
