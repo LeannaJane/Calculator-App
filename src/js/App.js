@@ -8,7 +8,7 @@ function App() {
   const [backgroundColor, setBackgroundColor] = useState('rgb(134, 187, 134)');
   const [showColorPopup, setShowColorPopup] = useState(false);
 
-  const colors = ['#FF5733', '#33FF57', '#3357FF', '#FFFF33', '#FF33FF', '#33FFFF'];
+  const colors = ['#FF5733', 'rgb(134, 187, 134)', 'rgb(92, 201, 228)', 'rgb(216, 145, 210)', 'rgb(240, 136, 136)', 'rgb(221, 203, 124)'];
 
   const handleAnimationClick = () => {
     setIsAnimating(true);

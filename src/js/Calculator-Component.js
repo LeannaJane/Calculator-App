@@ -9,42 +9,45 @@ const Calculator = () => {
     const displayRef = useRef(null); 
 
     const parseOperations = (expression) => {
-        const mulDivPattern = /(\d+(\.\d+)?)\s*([x÷])\s*(\d+(\.\d+)?)/;
+        expression = expression.replace(/\s+/g, ''); 
+    
+        const mulDivPattern = /(-?\d+(\.\d+)?)\s*([x÷])\s*(-?\d+(\.\d+)?)/; 
         let match;
-        
+    
         while ((match = mulDivPattern.exec(expression))) {
             const left = parseFloat(match[1]);
             const right = parseFloat(match[4]);
             const operator = match[3].trim();
-
+    
             let result;
             if (operator === 'x') {
                 result = left * right;
             } else if (operator === '÷') {
                 result = left / right;
             }
-
+    
             expression = expression.replace(match[0], result.toString());
         }
-
-        const addSubPattern = /(\d+(\.\d+)?)(\s*[\+\-])\s*(\d+(\.\d+)?)/;
+    
+        const addSubPattern = /(-?\d+(\.\d+)?)(\s*[\+\-])\s*(-?\d+(\.\d+)?)/; 
         while ((match = addSubPattern.exec(expression))) {
             const left = parseFloat(match[1]);
             const right = parseFloat(match[4]);
             const operator = match[3].trim();
-
+    
             let result;
             if (operator === '+') {
                 result = left + right;
             } else if (operator === '-') {
                 result = left - right;
             }
-
+    
             expression = expression.replace(match[0], result.toString());
         }
-
+    
         return parseFloat(expression);
     };
+    
 
     const handleClick = (value) => {
         if (value === "C") {
